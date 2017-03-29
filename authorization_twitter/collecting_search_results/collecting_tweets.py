@@ -1,5 +1,5 @@
 from collections import Counter
-import authorization
+import authorization_twitter
 import json
 from prettytable import PrettyTable
 
@@ -9,7 +9,7 @@ q = ['previdencia social', 'reforma', 'previdencia']
 
 count = 100
 
-search_results = authorization.twitter_api.search.tweets(q=q, count=count)
+search_results = authorization_twitter.twitter_api.search.tweets(q=q, count=count)
 
 # listing the 100 tweets
 # for i in range(len(search_results['statuses'])):
@@ -26,7 +26,7 @@ for _ in range(5):
     # creating a dictionary from next_results
     kwargs = dict([ kv.split('=') for kv in next_results[1:].split("&") ])
 
-    search_results = authorization.twitter_api.search.tweets(**kwargs)
+    search_results = authorization_twitter.twitter_api.search.tweets(**kwargs)
     statuses += search_results['statuses']
 
 # print len(statuses)
