@@ -5,7 +5,7 @@ from prettytable import PrettyTable
 
 # searching for tweets
 
-q = ['previdencia social', 'reforma', 'previdencia']
+q = ['previdencia social', 'reforma da previdencia', 'reforma da presidencia', 'previdencia']
 
 count = 100
 
@@ -29,7 +29,7 @@ for _ in range(5):
     search_results = authorization_twitter.twitter_api.search.tweets(**kwargs)
     statuses += search_results['statuses']
 
-# print len(statuses)
+print len(statuses)
 
 # printing one sample of the statuses
 # print json.dumps(statuses[0], indent=2)
@@ -86,7 +86,7 @@ def average_words(statuses):
     total_words = sum([ len(s.split()) for s in statuses])
     return 1.0*total_words/len(statuses)
 
-print lexical_diversity(words)
-print lexical_diversity(hashtags)
-print lexical_diversity(screen_names)
-print average_words(status_texts)
+# print lexical_diversity(words)
+# print lexical_diversity(hashtags)
+# print lexical_diversity(screen_names)
+# print average_words(status_texts)
