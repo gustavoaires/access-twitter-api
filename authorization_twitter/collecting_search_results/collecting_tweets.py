@@ -27,7 +27,7 @@ for _ in range(10): # 10*100 = 1000
         print len(statuses)
         break
 
-print len(statuses)
+print json.dumps(statuses[2], indent=1)
 
 # listing statuses
 # for status in statuses:

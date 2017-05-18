@@ -1,12 +1,20 @@
 from twitterscraper import query_tweets
-from twitterscraper import main
 import json
 
-query = "previdencia OR reforma da presidencia OR reforma da previdencia since:2017-03-15 until:2017-03-22"
+query = "previdencia OR reforma da presidencia OR reforma da previdencia since:2017-05-01 until:2017-05-02"
 
-encoder = json.JSONEncoder()
+tweets_list = []
 
-# add code to save in a file
+outfile = open('tweets_01_05.json', 'w')
 
 for tweet in query_tweets(query):
-    print main.JSONEncoder(encoder).encode(tweet)
+    new_tweet = {}
+    user = tweet.user
+    new_tweet['screen_name'] = user
+    new_tweet['id'] = tweet.id
+    new_tweet['text'] = tweet.text
+    tweets_list.append(new_tweet)
+    json.dump(new_tweet, outfile)
+    outfile.write("\n")
+
+outfile.close()
