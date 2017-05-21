@@ -1,5 +1,4 @@
 import tweepy as tw
-from tweepy import Status
 import json
 
 access_token = "98992106-OsffZtvTWPxeHCkA5G9golyjU4inlvb7XB6g0oDva"
@@ -14,10 +13,11 @@ api = tw.API(auth, wait_on_rate_limit=True)
 
 statuses = []
 
-q = 'previdencia social OR reforma da previdencia OR reforma da presidencia OR previdencia'
+outfile = open('tweets_20_05.json', 'w')
 
+q = 'previdencia social OR reforma da previdencia OR reforma da presidencia OR previdencia since:2017-05-20 until:2017-05-21'
+
+print '20'
 for tweet in tw.Cursor(api.search, q=q, lang="pt").items():
-    print tweet._json['created_at']
-
-# for tweet in tweets:
-#     print tweet
+    json.dump(tweet._json, outfile)
+    outfile.write("\n")
