@@ -10,14 +10,14 @@ consumer_secret = "dFr8l0HDQ2RA3sQhiTjkMvJs9ML38BLkEoofDNr50tBEOCmZNA"
 auth = tw.OAuthHandler(consumer_key, consumer_secret)
 auth.access_token = access_token
 auth.access_token_secret = access_token_secret
-api = tw.API(auth)
+api = tw.API(auth, wait_on_rate_limit=True)
 
-tweets = []
+statuses = []
 
 q = 'previdencia social OR reforma da previdencia OR reforma da presidencia OR previdencia'
 
-for tweet in tw.Cursor(api.search, q=q, lang="pt").items(200):
-    print tweets.append(json.dumps(tweet.__dict__))
+for tweet in tw.Cursor(api.search, q=q, lang="pt").items():
+    print tweet._json['created_at']
 
-for tweet in tweets:
-    print tweet
+# for tweet in tweets:
+#     print tweet

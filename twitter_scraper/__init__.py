@@ -1,11 +1,11 @@
 from twitterscraper import query_tweets
 import json
 
-query = "previdencia OR reforma da presidencia OR reforma da previdencia since:2017-05-01 until:2017-05-02"
+query = "'previdencia' OR 'reforma da presidencia' OR 'reforma da previdencia' since:2017-03-25 until:2017-03-26"
 
 tweets_list = []
 
-outfile = open('tweets_01_05.json', 'w')
+outfile = open('tweets_25_03.json', 'w')
 
 for tweet in query_tweets(query):
     new_tweet = {}
