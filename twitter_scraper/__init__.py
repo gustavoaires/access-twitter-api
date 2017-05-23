@@ -9,8 +9,7 @@ outfile = open('tweets_25_03.json', 'w')
 
 for tweet in query_tweets(query):
     new_tweet = {}
-    user = tweet.user
-    new_tweet['screen_name'] = user
+    new_tweet['screen_name'] = tweet.user
     new_tweet['id'] = tweet.id
     new_tweet['text'] = tweet.text
     tweets_list.append(new_tweet)

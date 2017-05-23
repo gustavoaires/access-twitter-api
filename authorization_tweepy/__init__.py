@@ -15,7 +15,8 @@ statuses = []
 
 outfile = open('tweets_20_05.json', 'w')
 
-q = 'previdencia social OR reforma da previdencia OR reforma da presidencia OR previdencia since:2017-05-20 until:2017-05-21'
+q = 'previdencia social OR reforma da previdencia OR reforma da presidencia ' \
+    'OR previdencia since:2017-05-20 until:2017-05-21'
 
 print '20'
 for tweet in tw.Cursor(api.search, q=q, lang="pt").items():
